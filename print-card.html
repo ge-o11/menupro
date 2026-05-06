@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>MenuPro – כרטיסי ביקור</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      font-family: 'Heebo', Arial, sans-serif;
+      background: #b8b8b8;
+      padding: 28px;
+      direction: rtl;
+    }
+
+    /* ── Toolbar ── */
+    .toolbar {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .toolbar h1 {
+      font-size: 20px;
+      color: #1a3060;
+      margin-bottom: 5px;
+    }
+
+    .toolbar p {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 16px;
+    }
+
+    .print-btn {
+      padding: 11px 30px;
+      background: linear-gradient(135deg, #1e4f97, #2d7fc5);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 800;
+      font-family: 'Heebo', Arial, sans-serif;
+      cursor: pointer;
+    }
+
+    /* ── Grid 2×3 ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 85mm);
+      grid-template-rows: repeat(3, 55mm);
+      gap: 5mm;
+      justify-content: center;
+    }
+
+    /* ══════════════════════════════════
+       CARD
+    ══════════════════════════════════ */
+    .card {
+      width: 85mm;
+      height: 55mm;
+      border-radius: 3.5mm;
+      overflow: hidden;
+      display: flex;
+      position: relative;
+      background: #07112e;
+    }
+
+    /* ── Text column — RIGHT in RTL (first in HTML) ── */
+    .card-text {
+      flex: 1;
+      background: linear-gradient(160deg, #091535 0%, #0f2255 60%, #132d6a 100%);
+      display: flex;
+      flex-direction: column;
+      padding: 4mm 5mm 3.5mm 3mm;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ── Visual column — LEFT in RTL (second in HTML) ── */
+    .card-visual {
+      width: 30mm;
+      flex-shrink: 0;
+      position: relative;
+      background: linear-gradient(160deg, #0d2060 0%, #163580 50%, #1b4498 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Separator line on the right edge of visual column (inner edge facing text) */
+    .card-visual::after {
+      content: '';
+      position: absolute;
+      top: 4mm;
+      bottom: 4mm;
+      right: 0;
+      width: 0.4pt;
+      background: linear-gradient(to bottom, transparent, rgba(147,197,253,0.3) 30%, rgba(167,139,250,0.3) 70%, transparent);
+    }
+
+    /* Glow behind phone */
+    .phone-glow {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(96,165,250,0.25) 0%, transparent 68%);
+    }
+
+    .phone-wrap {
+      width: 19mm;
+      height: 40mm;
+      background: #06080f;
+      border-radius: 3.2mm;
+      padding: 1.5mm;
+      box-shadow:
+        0 2mm 8mm rgba(0,0,0,0.65),
+        inset 0 0 0 0.3pt rgba(255,255,255,0.1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .phone-notch-s {
+      position: absolute;
+      top: 1.5mm;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6mm;
+      height: 1.6mm;
+      background: #06080f;
+      border-radius: 0 0 1mm 1mm;
+      z-index: 3;
+    }
+
+    .phone-screen-s {
+      width: 100%;
+      height: 100%;
+      border-radius: 2mm;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .phone-screen-s img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Top: brand row */
+    .card-brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5mm;
+    }
+
+    .card-brand {
+      font-size: 15pt;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+      line-height: 1;
+    }
+
+    .card-ai-dot {
+      font-size: 5pt;
+      font-weight: 700;
+      color: #c4b5fd;
+      background: rgba(139,92,246,0.2);
+      border: 0.4pt solid rgba(167,139,250,0.4);
+      border-radius: 8pt;
+      padding: 0.8mm 2mm;
+      white-space: nowrap;
+    }
+
+    /* Accent line */
+    .card-line {
+      width: 100%;
+      height: 0.4pt;
+      background: linear-gradient(90deg, rgba(96,165,250,0.5), rgba(167,139,250,0.3), transparent);
+      margin-bottom: 1.8mm;
+      border-radius: 1pt;
+    }
+
+    /* Tagline */
+    .card-tagline {
+      font-size: 5pt;
+      font-weight: 400;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      margin-bottom: 0.5mm;
+      letter-spacing: 0.1px;
+    }
+
+    /* Center: main headline */
+    .card-headline-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-headline {
+      font-size: 10pt;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.3;
+      text-align: center;
+    }
+
+    .card-headline .hl {
+      color: #7dd3fc;
+    }
+
+    /* Feature pills row */
+    .card-features {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2mm;
+      padding: 1.2mm 0 1mm;
+    }
+
+    .card-feature-pill {
+      font-size: 3.8pt;
+      font-weight: 700;
+      color: rgba(147,197,253,0.85);
+      background: rgba(96,165,250,0.1);
+      border: 0.3pt solid rgba(96,165,250,0.28);
+      border-radius: 4pt;
+      padding: 0.5mm 1.6mm;
+      white-space: nowrap;
+    }
+
+    /* Bottom: QR + contact */
+    .card-bottom {
+      display: flex;
+      align-items: center;
+      gap: 2.5mm;
+      padding-top: 2mm;
+      border-top: 0.4pt solid rgba(255,255,255,0.08);
+    }
+
+    .card-qr {
+      background: white;
+      border-radius: 1.5mm;
+      padding: 1mm;
+      flex-shrink: 0;
+    }
+
+    .card-qr img {
+      display: block;
+      width: 17mm;
+      height: 17mm;
+    }
+
+    .card-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.3mm;
+    }
+
+    .info-url {
+      font-size: 5.5pt;
+      font-weight: 700;
+      color: #93c5fd;
+      direction: ltr;
+      unicode-bidi: bidi-override;
+    }
+
+    .info-phone {
+      font-size: 7pt;
+      font-weight: 800;
+      color: #86efac;
+      direction: ltr;
+      unicode-bidi: bidi-override;
+    }
+
+    .info-cta {
+      font-size: 5pt;
+      color: rgba(255,255,255,0.38);
+    }
+
+    /* ── Print ── */
+    @page {
+      size: A4 portrait;
+      margin: 12mm;
+    }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .toolbar { display: none; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <h1>כרטיסי ביקור MenuPro — 6 לדף A4</h1>
+    <p>פתח עם אינטרנט כדי שה-QR ייטען · הדפס וחתוך לאורך הרווחים</p>
+    <button class="print-btn" onclick="window.print()">🖨️ הדפס עכשיו</button>
+  </div>
+
+  <div class="cards-grid">
+
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="card-text">
+        <div class="card-brand-row">
+          <div class="card-ai-dot">✦ AI</div>
+          <div class="card-brand">MenuPro</div>
+        </div>
+        <div class="card-line"></div>
+        <div class="card-tagline">תפריט דיגיטלי חכם לעסקים</div>
+        <div class="card-headline-wrap">
+          <div class="card-headline">תפריט שמגדיל<br><span class="hl">מכירות</span></div>
+        </div>
+        <div class="card-features">
+          <span class="card-feature-pill">עדכון בזמן אמת</span>
+          <span class="card-feature-pill">ניהול עם AI</span>
+          <span class="card-feature-pill">QR קוד</span>
+        </div>
+        <div class="card-bottom">
+          <div class="card-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://menuvpro.com/&format=png&margin=4" alt="QR" />
+          </div>
+          <div class="card-info">
+            <span class="info-url">menuvpro.com</span>
+            <span class="info-phone">050-200-9350</span>
+            <span class="info-cta">סרקו לפרטים ולהצעת מחיר</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-visual">
+        <div class="phone-glow"></div>
+        <div class="phone-wrap">
+          <div class="phone-notch-s"></div>
+          <div class="phone-screen-s"><img src="images/menu.jpg" alt="menu" /></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <div class="card-text">
+        <div class="card-brand-row">
+          <div class="card-ai-dot">✦ AI</div>
+          <div class="card-brand">MenuPro</div>
+        </div>
+        <div class="card-line"></div>
+        <div class="card-tagline">תפריט דיגיטלי חכם לעסקים</div>
+        <div class="card-headline-wrap">
+          <div class="card-headline">תפריט שמגדיל<br><span class="hl">מכירות</span></div>
+        </div>
+        <div class="card-features">
+          <span class="card-feature-pill">עדכון בזמן אמת</span>
+          <span class="card-feature-pill">ניהול עם AI</span>
+          <span class="card-feature-pill">QR קוד</span>
+        </div>
+        <div class="card-bottom">
+          <div class="card-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://menuvpro.com/&format=png&margin=4" alt="QR" />
+          </div>
+          <div class="card-info">
+            <span class="info-url">menuvpro.com</span>
+            <span class="info-phone">050-200-9350</span>
+            <span class="info-cta">סרקו לפרטים ולהצעת מחיר</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-visual">
+        <div class="phone-glow"></div>
+        <div class="phone-wrap">
+          <div class="phone-notch-s"></div>
+          <div class="phone-screen-s"><img src="images/menu.jpg" alt="menu" /></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <div class="card-text">
+        <div class="card-brand-row">
+          <div class="card-ai-dot">✦ AI</div>
+          <div class="card-brand">MenuPro</div>
+        </div>
+        <div class="card-line"></div>
+        <div class="card-tagline">תפריט דיגיטלי חכם לעסקים</div>
+        <div class="card-headline-wrap">
+          <div class="card-headline">תפריט שמגדיל<br><span class="hl">מכירות</span></div>
+        </div>
+        <div class="card-features">
+          <span class="card-feature-pill">עדכון בזמן אמת</span>
+          <span class="card-feature-pill">ניהול עם AI</span>
+          <span class="card-feature-pill">QR קוד</span>
+        </div>
+        <div class="card-bottom">
+          <div class="card-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://menuvpro.com/&format=png&margin=4" alt="QR" />
+          </div>
+          <div class="card-info">
+            <span class="info-url">menuvpro.com</span>
+            <span class="info-phone">050-200-9350</span>
+            <span class="info-cta">סרקו לפרטים ולהצעת מחיר</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-visual">
+        <div class="phone-glow"></div>
+        <div class="phone-wrap">
+          <div class="phone-notch-s"></div>
+          <div class="phone-screen-s"><img src="images/menu.jpg" alt="menu" /></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card">
+      <div class="card-text">
+        <div class="card-brand-row">
+          <div class="card-ai-dot">✦ AI</div>
+          <div class="card-brand">MenuPro</div>
+        </div>
+        <div class="card-line"></div>
+        <div class="card-tagline">תפריט דיגיטלי חכם לעסקים</div>
+        <div class="card-headline-wrap">
+          <div class="card-headline">תפריט שמגדיל<br><span class="hl">מכירות</span></div>
+        </div>
+        <div class="card-features">
+          <span class="card-feature-pill">עדכון בזמן אמת</span>
+          <span class="card-feature-pill">ניהול עם AI</span>
+          <span class="card-feature-pill">QR קוד</span>
+        </div>
+        <div class="card-bottom">
+          <div class="card-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://menuvpro.com/&format=png&margin=4" alt="QR" />
+          </div>
+          <div class="card-info">
+            <span class="info-url">menuvpro.com</span>
+            <span class="info-phone">050-200-9350</span>
+            <span class="info-cta">סרקו לפרטים ולהצעת מחיר</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-visual">
+        <div class="phone-glow"></div>
+        <div class="phone-wrap">
+          <div class="phone-notch-s"></div>
+          <div class="phone-screen-s"><img src="images/menu.jpg" alt="menu" /></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card">
+      <div class="card-text">
+        <div class="card-brand-row">
+          <div class="card-ai-dot">✦ AI</div>
+          <div class="card-brand">MenuPro</div>
+        </div>
+        <div class="card-line"></div>
+        <div class="card-tagline">תפריט דיגיטלי חכם לעסקים</div>
+        <div class="card-headline-wrap">
+          <div class="card-headline">תפריט שמגדיל<br><span class="hl">מכירות</span></div>
+        </div>
+        <div class="card-features">
+          <span class="card-feature-pill">עדכון בזמן אמת</span>
+          <span class="card-feature-pill">ניהול עם AI</span>
+          <span class="card-feature-pill">QR קוד</span>
+        </div>
+        <div class="card-bottom">
+          <div class="card-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://menuvpro.com/&format=png&margin=4" alt="QR" />
+          </div>
+          <div class="card-info">
+            <span class="info-url">menuvpro.com</span>
+            <span class="info-phone">050-200-9350</span>
+            <span class="info-cta">סרקו לפרטים ולהצעת מחיר</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-visual">
+        <div class="phone-glow"></div>
+        <div class="phone-wrap">
+          <div class="phone-notch-s"></div>
+          <div class="phone-screen-s"><img src="images/menu.jpg" alt="menu" /></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="card">
+      <div class="card-text">
+        <div class="card-brand-row">
+          <div class="card-ai-dot">✦ AI</div>
+          <div class="card-brand">MenuPro</div>
+        </div>
+        <div class="card-line"></div>
+        <div class="card-tagline">תפריט דיגיטלי חכם לעסקים</div>
+        <div class="card-headline-wrap">
+          <div class="card-headline">תפריט שמגדיל<br><span class="hl">מכירות</span></div>
+        </div>
+        <div class="card-features">
+          <span class="card-feature-pill">עדכון בזמן אמת</span>
+          <span class="card-feature-pill">ניהול עם AI</span>
+          <span class="card-feature-pill">QR קוד</span>
+        </div>
+        <div class="card-bottom">
+          <div class="card-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://menuvpro.com/&format=png&margin=4" alt="QR" />
+          </div>
+          <div class="card-info">
+            <span class="info-url">menuvpro.com</span>
+            <span class="info-phone">050-200-9350</span>
+            <span class="info-cta">סרקו לפרטים ולהצעת מחיר</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-visual">
+        <div class="phone-glow"></div>
+        <div class="phone-wrap">
+          <div class="phone-notch-s"></div>
+          <div class="phone-screen-s"><img src="images/menu.jpg" alt="menu" /></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MenuVPro - Digital QR Menus</title>
+  <meta name="description" content="Professional digital QR menus for restaurants, cafes, and businesses. Modern design, mobile friendly, and easy to share." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://menuvpro.com/" />
+  <meta property="og:title" content="MenuVPro - Digital QR Menus" />
+  <meta property="og:description" content="Professional digital QR menus for restaurants, cafes, and businesses. Modern design, mobile friendly, and easy to share." />
+  <meta property="og:image" content="https://menuvpro.com/og-image.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://menuvpro.com/" />
+  <meta name="twitter:title" content="MenuVPro - Digital QR Menus" />
+  <meta name="twitter:description" content="Professional digital QR menus for restaurants, cafes, and businesses. Modern design, mobile friendly, and easy to share." />
+  <meta name="twitter:image" content="https://menuvpro.com/og-image.jpg" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e4f97'/><text x='50' y='72' text-anchor='middle' font-size='64' fill='white' font-weight='900'>M</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="header-bar">
+      <div class="language-switch">
+        <button type="button" onclick="setLang('he')" class="lang-btn active" data-lang="he">עברית</button>
+        <button type="button" onclick="setLang('ar')" class="lang-btn" data-lang="ar">عربي</button>
+      </div>
+      <div class="header-brand">MenuPro</div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+
+    <div class="hero-container">
+
+      <div class="hero-text">
+        <div class="mobile-top-bar">
+          <div class="mobile-brand">MenuPro</div>
+          <div class="mobile-lang-wrap">
+            <button type="button" onclick="setLang('he')" class="lang-btn active" data-lang="he">עברית</button>
+            <button type="button" onclick="setLang('ar')" class="lang-btn" data-lang="ar">عربي</button>
+          </div>
+        </div>
+
+        <span class="hero-badge" data-he="פתרון דיגיטלי חכם לעסקים" data-ar="حل رقمي ذكي للأعمال">
+          פתרון דיגיטלי חכם לעסקים
+        </span>
+
+        <h1 class="main-title" data-he="העתיד של התפריטים<br>מתחיל כאן" data-ar="مستقبل القوائم<br>يبدأ من هنا">
+          העתיד של התפריטים<br>מתחיל כאן
+        </h1>
+
+        <p class="subtitle" data-he="תפריט דיגיטלי חכם שמגדיל מכירות ונראה מדהים בכל טלפון" data-ar="قائمة رقمية ذكية تزيد المبيعات وتبدو رائعة على كل هاتف">
+          תפריט דיגיטלי חכם שמגדיל מכירות ונראה מדהים בכל טלפון
+        </p>
+
+        <div class="hero-actions">
+          <a
+            href="https://wa.me/972502009350?text=שלום%20אני%20רוצה%20לקבל%20פרטים"
+            target="_blank"
+            class="cta-button"
+            data-he="קבל הצעת מחיר חינם"
+            data-ar="احصل على عرض سعر مجاني"
+          >
+            קבל הצעת מחיר חינם
+          </a>
+          <a href="#features" class="secondary-link" data-he="למד עוד ↓" data-ar="تعرف أكثر ↓">
+            למד עוד ↓
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-phone">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <img src="images/menu.jpg" alt="תפריט דיגיטלי" class="phone-image" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <span class="stat-number">98%</span>
+        <span class="stat-label" data-he="שביעות רצון" data-ar="رضا العملاء">שביעות רצון</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">24h</span>
+        <span class="stat-label" data-he="זמן הגדרה" data-ar="وقت الإعداد">זמן הגדרה</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">∞</span>
+        <span class="stat-label" data-he="עדכונים ללא עלות" data-ar="تحديثات مجانية">עדכונים ללא עלות</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-section" id="features">
+    <div class="features-inner">
+      <span class="section-tag" data-he="למה MenuPro?" data-ar="لماذا MenuPro؟">למה MenuPro?</span>
+      <h2 class="features-title" data-he="כל מה שהעסק שלך צריך" data-ar="كل ما يحتاجه عملك">
+        כל מה שהעסק שלך צריך
+      </h2>
+      <p class="features-subtitle" data-he="פתרון מלא שמחליף את התפריט הישן ומשדרג את חוויית הלקוח" data-ar="حل متكامل يستبدل القائمة القديمة ويرقّي تجربة الزبون">
+        פתרון מלא שמחליף את התפריט הישן ומשדרג את חוויית הלקוח
+      </p>
+
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3 data-he="עדכון בזמן אמת" data-ar="تحديث فوري">עדכון בזמן אמת</h3>
+          <p data-he="שנה מחיר, הוסף מנה או הסר פריט בלחיצה — בלי הדפסות ובלי עלויות" data-ar="غيّر السعر أو أضف طبقًا أو احذف عنصرًا بنقرة — بدون طباعة وبدون تكاليف">
+            שנה מחיר, הוסף מנה או הסר פריט בלחיצה — בלי הדפסות ובלי עלויות
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3 data-he="QR קוד מותאם אישית" data-ar="رمز QR مخصص">QR קוד מותאם אישית</h3>
+          <p data-he="הלקוח מכוון את המצלמה — והתפריט נפתח מיד. אין צורך באפליקציה" data-ar="يوجّه الزبون الكاميرا — وتفتح القائمة فورًا. لا حاجة لتطبيق">
+            הלקוח מכוון את המצלמה — והתפריט נפתח מיד. אין צורך באפליקציה
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🌐</div>
+          <h3 data-he="עברית וערבית" data-ar="عبري وعربي">עברית וערבית</h3>
+          <p data-he="התפריט מוצג בשפה של הלקוח — מגדיל נגישות ומשפר את חוויית השירות" data-ar="تُعرض القائمة بلغة الزبون — تزيد من الوصولية وتحسّن تجربة الخدمة">
+            התפריט מוצג בשפה של הלקוח — מגדיל נגישות ומשפר את חוויית השירות
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h3 data-he="הגדרה תוך 24 שעות" data-ar="إعداد خلال 24 ساعة">הגדרה תוך 24 שעות</h3>
+          <p data-he="אנחנו מטפלים בהכל. שולחים לנו את התפריט — אנחנו מכינים ומעלים" data-ar="نحن نتولى كل شيء. أرسل لنا القائمة — نحن نجهز ونرفع">
+            אנחנו מטפלים בהכל. שולחים לנו את התפריט — אנחנו מכינים ומעלים
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AI SECTION -->
+  <section class="ai-section" id="ai">
+    <div class="ai-inner">
+
+      <div class="ai-text">
+        <span class="ai-badge" data-he="מופעל על ידי בינה מלאכותית" data-ar="مدعوم بالذكاء الاصطناعي">
+          מופעל על ידי בינה מלאכותית
+        </span>
+        <h2 class="ai-title" data-he='אתה שולט בהכל<br><span class="ai-highlight">בלחיצה אחת — מכל מקום</span>' data-ar='أنت تتحكم بكل شيء<br><span class="ai-highlight">بنقرة واحدة — من أي مكان</span>'>
+          אתה שולט בהכל<br><span class="ai-highlight">בלחיצה אחת — מכל מקום</span>
+        </h2>
+        <p class="ai-desc" data-he="עם לוח הבקרה החכם מבוסס AI שלנו, אתה מעדכן מחירים, מוסיף מנות ומנהל את התפריט לבד — מהטלפון, בכל שעה, בלי לפנות לאף אחד." data-ar="مع لوحة التحكم الذكية المبنية على الذكاء الاصطناعي، تحدّث الأسعار وأضف أطباقًا وأدر قائمتك بنفسك — من هاتفك، في أي وقت، دون الحاجة لأحد.">
+          עם לוח הבקרה החכם מבוסס AI שלנו, אתה מעדכן מחירים, מוסיף מנות ומנהל את התפריט לבד — מהטלפון, בכל שעה, בלי לפנות לאף אחד.
+        </p>
+
+        <ul class="ai-bullets">
+          <li data-he="עדכון מחירים ומנות בלחיצה אחת" data-ar="تحديث الأسعار والأطباق بنقرة واحدة">עדכון מחירים ומנות בלחיצה אחת</li>
+          <li data-he="הוספת תמונות ותיאורים חדשים" data-ar="إضافة صور وأوصاف جديدة">הוספת תמונות ותיאורים חדשים</li>
+          <li data-he="הפעלה וכיבוי פריטים לפי זמינות" data-ar="تفعيل وتعطيل العناصر حسب التوفر">הפעלה וכיבוי פריטים לפי זמינות</li>
+          <li data-he="ממשק פשוט — אין צורך בידע טכני" data-ar="واجهة بسيطة — لا حاجة لمعرفة تقنية">ממשק פשוט — אין צורך בידע טכני</li>
+        </ul>
+
+        <a
+          href="https://wa.me/972502009350?text=שלום%20אני%20רוצה%20לקבל%20פרטים"
+          target="_blank"
+          class="cta-button"
+          data-he="רוצה תפריט כזה לעסק שלך"
+          data-ar="أريد قائمة كهذه لعملك"
+        >
+          רוצה תפריט כזה לעסק שלך
+        </a>
+      </div>
+
+      <div class="ai-dashboard">
+        <div class="ai-chat-header">
+          <div class="ai-chat-avatar-circle">AI</div>
+          <div class="ai-chat-info">
+            <span class="ai-chat-name">MenuPro AI</span>
+            <span class="ai-chat-online" data-he="● פעיל עכשיו" data-ar="● نشط الآن">● פעיל עכשיו</span>
+          </div>
+        </div>
+
+        <div class="ai-chat-messages">
+
+          <div class="chat-msg user">
+            <div class="chat-bubble"
+              data-he="תעדכן את המחיר של המבורגר ל-65 שקל"
+              data-ar="حدّث سعر الهمبرغر إلى 65 شيكل"
+            >
+              תעדכן את המחיר של המבורגר ל-65 שקל
+            </div>
+          </div>
+
+          <div class="chat-msg ai">
+            <div class="chat-bubble"
+              data-he="✅ בוצע! מחיר ההמבורגר עודכן ל-<strong>₪65</strong>. הלקוחות יראו את השינוי מיד."
+              data-ar="✅ تم! تم تحديث سعر الهمبرغر إلى <strong>₪65</strong>. سيرى الزبائن التغيير فورًا."
+            >
+              ✅ בוצע! מחיר ההמבורגר עודכן ל-<strong>₪65</strong>. הלקוחות יראו את השינוי מיד.
+            </div>
+          </div>
+
+          <div class="chat-msg user">
+            <div class="chat-bubble"
+              data-he="תכבה את מנת היום, אזל המלאי"
+              data-ar="أوقف طبق اليوم، نفد المخزون"
+            >
+              תכבה את מנת היום, אזל המלאי
+            </div>
+          </div>
+
+          <div class="chat-msg ai">
+            <div class="chat-bubble"
+              data-he="✅ מנת היום הוסתרה. הלקוחות לא יראו אותה עד שתפעיל שוב."
+              data-ar="✅ تم إخفاء طبق اليوم. لن يراه الزبائن حتى تُعيد تفعيله."
+            >
+              ✅ מנת היום הוסתרה. הלקוחות לא יראו אותה עד שתפעיל שוב.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="ai-chat-input-bar">
+          <div class="ai-chat-input">
+            <span class="ai-input-placeholder"
+              data-he="כתוב פקודה לעוזר AI..."
+              data-ar="اكتب أمرًا للمساعد الذكي..."
+            >כתוב פקודה לעוזר AI...</span>
+            <span class="ai-input-cursor">|</span>
+          </div>
+          <button class="ai-send-btn" aria-label="שלח">
+            <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18">
+              <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPARE -->
+  <section class="compare-simple" id="compare">
+    <h2
+      class="compare-main-title"
+      data-he="המעבר מתפריט מסורתי לתפריט דיגיטלי חכם"
+      data-ar="الانتقال من قائمة تقليدية إلى قائمة رقمية ذكية"
+    >
+      המעבר מתפריט מסורתי לתפריט דיגיטלי חכם
+    </h2>
+
+    <div class="compare-row">
+
+      <div class="compare-side old-side">
+        <div class="paper-menu-sheet">
+          <div class="paper-header">
+            <h3>MENU</h3>
+            <span data-he="תפריט מסעדה" data-ar="قائمة مطعم">תפריט מסעדה</span>
+          </div>
+
+          <div class="paper-columns">
+            <div class="paper-column">
+              <h4 data-he="מנות עיקריות" data-ar="أطباق رئيسية">מנות עיקריות</h4>
+
+              <div class="paper-item">
+                <strong data-he="המבורגר" data-ar="همبرغر">המבורגר</strong>
+                <span>₪55</span>
+                <p data-he="מנה קלאסית עם תוספות לבחירה" data-ar="وجبة كلاسيكية مع إضافات حسب الاختيار">מנה קלאסית עם תוספות לבחירה</p>
+              </div>
+
+              <div class="paper-item">
+                <strong data-he="פיצה" data-ar="بيتزا">פיצה</strong>
+                <span>₪45</span>
+                <p data-he="פיצה אישית עם גבינה ותוספות" data-ar="بيتزا شخصية مع الجبنة والإضافات">פיצה אישית עם גבינה ותוספות</p>
+              </div>
+
+              <div class="paper-item">
+                <strong data-he="סלט" data-ar="سلطة">סלט</strong>
+                <span>₪30</span>
+                <p data-he="סלט טרי עם ירקות ורוטב הבית" data-ar="سلطة طازجة مع خضار وصلصة البيت">סלט טרי עם ירקות ורוטב הבית</p>
+              </div>
+            </div>
+
+            <div class="paper-divider"></div>
+
+            <div class="paper-column">
+              <h4 data-he="שתייה וקינוחים" data-ar="مشروبات وحلويات">שתייה וקינוחים</h4>
+
+              <div class="paper-item">
+                <strong data-he="קפה" data-ar="قهوة">קפה</strong>
+                <span>₪15</span>
+                <p data-he="אספרסו / הפוך / אמריקנו" data-ar="إسبريسو / كابتشينو / أمريكانو">אספרסו / הפוך / אמריקנו</p>
+              </div>
+
+              <div class="paper-item">
+                <strong data-he="שתייה קלה" data-ar="مشروب بارد">שתייה קלה</strong>
+                <span>₪12</span>
+                <p data-he="קולה, ספרייט, מים וסודה" data-ar="كولا، سبرايت، ماء وصودا">קולה, ספרייט, מים וסודה</p>
+              </div>
+
+              <div class="paper-item">
+                <strong data-he="קינוח" data-ar="تحلية">קינוח</strong>
+                <span>₪24</span>
+                <p data-he="עוגת הבית או קינוח אישי" data-ar="كيكة البيت أو تحلية فردية">עוגת הבית או קינוח אישי</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="compare-text" data-he="תפריט מודפס, לא מתעדכן ודורש זמן ומשאבים" data-ar="قائمة مطبوعة لا تتحدث وتتطلب وقتًا وموارد">
+          תפריט מודפס, לא מתעדכן ודורש זמן ומשאבים
+        </p>
+      </div>
+
+      <div class="compare-arrow">←</div>
+
+      <div class="compare-side new-side">
+        <div class="phone">
+          <div class="phone-screen">
+            <video autoplay muted loop playsinline class="phone-video" poster="images/menu.jpg">
+              <source src="videos/videosmenu-demo.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+
+        <p class="compare-text" data-he="תפריט חכם, מתעדכן בזמן אמת ומשפר את חוויית הלקוח<br>וגורם לו להזמין יותר" data-ar="قائمة ذكية تتحدث بشكل فوري وتحسن تجربة الزبون<br>وتجعله يطلب أكثر">
+          תפריט חכם, מתעדכן בזמן אמת ומשפר את חוויית הלקוח<br>וגורם לו להזמין יותר
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHATSAPP CONTACT -->
+  <section class="whatsapp-contact">
+    <div class="whatsapp-contact-inner">
+      <span class="contact-badge" data-he="צור קשר" data-ar="تواصل معنا">צור קשר</span>
+
+      <h2 class="whatsapp-title" data-he="בואו נדבר בוואטסאפ" data-ar="لنتحدث عبر واتساب">
+        בואו נדבר בוואטסאפ
+      </h2>
+
+      <p class="whatsapp-subtitle" data-he="רוצים לקבל הצעת מחיר, לשאול שאלה או להתחיל לעבוד יחד?<br>שלחו הודעה קצרה ונחזור אליכם במהירות." data-ar="هل تريد الحصول على عرض سعر أو طرح سؤال أو بدء العمل معنا؟<br>أرسل رسالة قصيرة وسنعود إليك بسرعة.">
+        רוצים לקבל הצעת מחיר, לשאול שאלה או להתחיל לעבוד יחד?<br>שלחו הודעה קצרה ונחזור אליכם במהירות.
+      </p>
+
+      <div class="whatsapp-card">
+        <div class="whatsapp-icon-wrap">
+          <div class="whatsapp-icon-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="52" height="52" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="whatsapp-content">
+          <h3 data-he="מענה מהיר ונוח" data-ar="رد سريع ومريح">מענה מהיר ונוח</h3>
+          <p data-he="זמינים עבורכם בוואטסאפ לכל שאלה, התייעצות או התחלת עבודה." data-ar="متوفرون لكم عبر واتساب لأي سؤال أو استشارة أو بدء عمل.">
+            זמינים עבורכם בוואטסאפ לכל שאלה, התייעצות או התחלת עבודה.
+          </p>
+
+          <div class="whatsapp-actions">
+            <a
+              class="whatsapp-button primary"
+              href="https://wa.me/972502009350"
+              target="_blank"
+              data-he="שלחו הודעה עכשיו"
+              data-ar="أرسل رسالة الآن"
+            >
+              שלחו הודעה עכשיו
+            </a>
+            <a
+              class="whatsapp-button secondary"
+              href="https://wa.me/972502009350?text=שלום%20אני%20רוצה%20לקבל%20פרטים"
+              target="_blank"
+              data-he="הודעה מוכנה מראש"
+              data-ar="رسالة جاهزة مسبقًا"
+            >
+              הודעה מוכנה מראש
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QR SECTION -->
+  <section class="qr-section">
+    <div class="qr-inner">
+
+      <div class="qr-text">
+        <span class="section-tag" data-he="שתף את העסק שלך" data-ar="شارك عملك">שתף את העסק שלך</span>
+        <h2 class="qr-title" data-he="סרקו וגלו את MenuPro" data-ar="امسح واكتشف MenuPro">
+          סרקו וגלו את MenuPro
+        </h2>
+        <p class="qr-desc" data-he="הציגו את קוד ה-QR על שולחנות, כרטיסי ביקור או פלאיירים — כל סריקה מגיעה ישירות לדף הזה." data-ar="اعرض رمز QR على الطاولات أو بطاقات العمل أو المنشورات — كل مسح يصل مباشرة إلى هذه الصفحة.">
+          הציגו את קוד ה-QR על שולחנות, כרטיסי ביקור או פלאיירים — כל סריקה מגיעה ישירות לדף הזה.
+        </p>
+        <div class="qr-url-row">
+          <span class="qr-url-label" data-he="הקישור:" data-ar="الرابط:">הקישור:</span>
+          <span class="qr-url-text">menuvpro.com</span>
+        </div>
+      </div>
+
+      <div class="qr-card">
+        <div class="qr-code-wrap">
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=https://menuvpro.com/&format=png&margin=12"
+            alt="QR Code - MenuPro"
+            class="qr-img"
+            width="260"
+            height="260"
+          />
+        </div>
+        <p class="qr-scan-label" data-he="סרקו לפרטים נוספים" data-ar="امسح للمزيد من التفاصيل">סרקו לפרטים נוספים</p>
+        <a
+          href="https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&data=https://menuvpro.com/&format=png&margin=20"
+          download="menupro-qr.png"
+          class="qr-download-btn"
+          data-he="⬇ הורד QR להדפסה" data-ar="⬇ تحميل QR للطباعة"
+          target="_blank"
+        >
+          ⬇ הורד QR להדפסה
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-brand">MenuPro</span>
+      <span class="footer-sep">·</span>
+      <span class="footer-copy" data-he="© 2025 כל הזכויות שמורות" data-ar="© 2025 جميع الحقوق محفوظة">© 2025 כל הזכויות שמורות</span>
+      <span class="footer-sep">·</span>
+      <a href="https://wa.me/972502009350" target="_blank" class="footer-link" data-he="צור קשר" data-ar="تواصل معنا">צור קשר</a>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.documentElement.dir = 'rtl';
+      document.body.dir = 'rtl';
+
+      document.querySelectorAll('[data-he]').forEach(function(el) {
+        var text = el.getAttribute('data-' + lang);
+        if (text !== null) el.innerHTML = text;
+      });
+
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+    }
+  </script>
+
+</body>
+</html>
